@@ -1,11 +1,14 @@
-# LMP Assistant (Language Model Pentester)
+<img width="1082" height="246" alt="argus" src="https://github.com/user-attachments/assets/b641734d-233c-4206-9c99-3c3f9b948de3" />
+
+
+# ArgusVeda
 ![Repo Size](https://img.shields.io/github/repo-size/VargasCardona/language-model-pentester?style=for-the-badge)
 ![License](https://img.shields.io/github/license/VargasCardona/language-model-pentester?style=for-the-badge)
 ![Last Commit](https://img.shields.io/github/last-commit/VargasCardona/language-model-pentester?style=for-the-badge)
 
 ### A Context-Aware RAG Chain for Ethical Hacking & Vulnerability Analysis
 
-**LMP Assistant** is a specialized cybersecurity tool built with **LangChain**. It leverages Retrieval-Augmented Generation (RAG) to bridge the gap between raw network scan results and actionable security intelligence. By connecting a specialized knowledge base to a sequence of logical processors, LMP assists security researchers in identifying exploits and remediation steps for vulnerable targets like **Metasploitable**.
+**ArgusVeda** is a specialized cybersecurity tool built with **LangChain**. It leverages Retrieval-Augmented Generation (RAG) to bridge the gap between raw network scan results and actionable security intelligence. By connecting a specialized knowledge base to a sequence of logical processors, LMP assists security researchers in identifying exploits and remediation steps for vulnerable targets like **Metasploitable**.
 
 ---
 
