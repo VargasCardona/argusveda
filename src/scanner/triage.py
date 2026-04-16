@@ -7,11 +7,11 @@ def fast_triage(network_range: str = None) -> str:
     if network_range is None:
         network_range = NETWORK_SCAN_RANGE
 
-    print(f"[ARGUSVEDA] Ejecutando reconocimiento inicial en {network_range}...")
+    print(f"[+] Executing initial reconnaissance on {network_range}...")
 
     result = subprocess.run(
         ["nmap", "--top-ports", "10", network_range], capture_output=True, text=True
     )
 
-    print("[ARGUSVEDA] Reconocimiento superficial completado. Analizando resultados...")
+    print("[+] Surface reconnaissance complete. Analyzing results...")
     return result.stdout

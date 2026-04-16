@@ -40,8 +40,8 @@ def build_context(lista_servicios: list[str], retriever) -> str:
     contexto_acumulado = []
     vistos = set()
 
-    print(f"[ARGUSVEDA] Consultando base de datos de vulnerabilidades conocidas...")
-    print(f"[ARGUSVEDA] Servicios detectados: {lista_servicios}")
+    print(f"[+] Querying vulnerability database...")
+    print(f"[+] Detected services: {lista_servicios}")
 
     for servicio in lista_servicios:
         if len(servicio) < 3 or servicio.lower() == "tcpwrapped":
@@ -54,9 +54,7 @@ def build_context(lista_servicios: list[str], retriever) -> str:
                 contexto_acumulado.append(d.page_content)
                 vistos.add(d.page_content)
 
-    print(
-        f"[ARGUSVEDA] {len(contexto_acumulado)} exposiciones identificadas. Preparando análisis..."
-    )
+    print(f"[+] {len(contexto_acumulado)} exposures identified. Preparing analysis...")
 
     return "\n\n".join(contexto_acumulado)
 

@@ -89,6 +89,6 @@ def export_to_pdf(report_text: str, filename: str = "Reporte_Pentest.pdf") -> st
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     full_path = OUTPUT_DIR / filename
     HTML(string=full_html).write_pdf(str(full_path))
-    print(f"[ARGUSVEDA] Documento generado: {full_path}")
+    print(f"[+] Document generated: {full_path}")
 
     return str(full_path)

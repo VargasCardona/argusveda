@@ -4,7 +4,7 @@ import subprocess
 def deep_scan(target_ip: str) -> str:
     ip = target_ip.strip()
 
-    print(f"[ARGUSVEDA] Iniciando análisis profundo de {ip}...")
+    print(f"[+] Initiating deep analysis of {ip}...")
 
     result = subprocess.run(["nmap", "-sV", "-T4", ip], capture_output=True, text=True)
 

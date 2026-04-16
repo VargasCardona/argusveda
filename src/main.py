@@ -8,7 +8,7 @@ from .core.config import NETWORK_SCAN_RANGE
 load_dotenv()
 
 banner = """
- ░▒▓██████▓▒░░▒▓███████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓███████▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░▒▓███████▓▒░ ░▒▓██████▓▒░ 
+  ░▒▓██████▓▒░░▒▓███████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓███████▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░▒▓███████▓▒░ ░▒▓██████▓▒░ 
  ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
  ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░       ░▒▓█▓▒▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
  ░▒▓████████▓▒░▒▓███████▓▒░░▒▓█▓▒▒▓███▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░ ░▒▓█▓▒▒▓█▓▒░░▒▓██████▓▒░ ░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░ 
@@ -18,40 +18,47 @@ banner = """
 """
 
 print(banner)
+print(
+    "                           by VargasCardona ~ autonomous reconnaissance on your network"
+)
+print(
+    "                                                       v1.0.0\n"
+)
+
 
 
 def main():
-    print("[ARGUSVEDA] Sistema de análisis de vulnerabilidades iniciado.")
+    print("[+] Vulnerability analysis system initialized.")
 
     network_range = input(
-        f"[ARGUSVEDA] Introducir rango de red objetivo [{NETWORK_SCAN_RANGE}]: "
+        f"[+] Enter target network range [{NETWORK_SCAN_RANGE}]: "
     ).strip()
     if not network_range:
         network_range = NETWORK_SCAN_RANGE
 
-    print(f"[ARGUSVEDA] Rango configurado: {network_range}")
-    print("[ARGUSVEDA] Cargando base de conocimientos...")
+    print(f"[+] Network range configured: {network_range}")
+    print("[+] Loading knowledge base...")
 
     retriever = ingest_vulnerabilities()
 
-    print("[ARGUSVEDA] Iniciando reconocimiento de superficie de ataque...")
+    print("[+] Initiating attack surface reconnaissance...")
     nmap_result = fast_triage(network_range)
 
-    print("[ARGUSVEDA] Evaluando vectores de compromiso potenciales...")
+    print("[+] Evaluating potential compromise vectors...")
     selected_ip = target_selector_chain.invoke({"scan_data": nmap_result})
 
-    print(f"[ARGUSVEDA] Objetivo prioritario identificado: {selected_ip.strip()}")
+    print(f"[+] Priority target identified: {selected_ip.strip()}")
     deep_scan_result = deep_scan(selected_ip)
 
-    print("\n[ARGUSVEDA] Procesando inteligencia de vulnerabilidades...")
+    print("\n[+] Processing vulnerability intelligence...")
     resultado = full_pipeline(deep_scan_result, retriever)
 
-    print("\n[ARGUSVEDA] ░▒▓ INFORME DE ANÁLISIS ▓▒░")
+    print("\n[+] ░▒▓ ANALYSIS REPORT ▓▒░")
     print("=" * 60)
     print(resultado["reporte"])
 
     export_to_pdf(resultado["reporte"])
-    print("\n[ARGUSVEDA] Análisis completado. Sesión terminada.")
+    print("\n[+] Analysis complete. Session terminated.")
 
 
 if __name__ == "__main__":

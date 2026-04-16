@@ -60,8 +60,6 @@ def ingest_vulnerabilities(data_path=None, retriever=None):
                 documents.append(doc)
 
     retriever.add_documents(documents, ids=None)
-    print(
-        f"[ARGUSVEDA] Base de conocimientos indexada. {len(documents)} registros cargados."
-    )
+    print(f"[+] Knowledge base indexed. {len(documents)} records loaded.")
 
     return retriever
